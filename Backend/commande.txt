@@ -1,0 +1,16 @@
+python3 -m venv env
+source env/bin/activate
+
+python -m pip install django
+python -m pip install PyJWT
+python -m pip install djangorestframework
+python -m pip install django-rest-swagger
+python -m pip install django-cors-headers
+pip install python-decouple
+
+python manage.py runserver 0.0.0.0:8080
+
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py init_local_dev ##(commande pour populer la db)

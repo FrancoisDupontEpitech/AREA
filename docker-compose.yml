@@ -1,0 +1,25 @@
+version: "3"
+services:
+
+  server:
+    build: ./Backend
+    ports:
+      - 8080:8080
+
+  client_web:
+    build: ./PoC_front_login
+    ports:
+      - 8081:8081
+    volumes:
+      - webMobile_volume:/var/lib/docker/volumes/webMobile_volume/_data
+    depends_on:
+      - server
+#      - client_mobile
+
+#  client_mobile:
+#    build: ./client_mobile
+#    volumes:
+#      - webMobile_volume:/var/lib/docker/volumes/webMobile_volume/_data
+
+volumes:
+  webMobile_volume:
